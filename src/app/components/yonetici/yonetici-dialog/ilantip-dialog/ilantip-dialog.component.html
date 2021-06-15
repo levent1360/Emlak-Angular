@@ -1,0 +1,14 @@
+<h1 mat-dialog-title>{{dialogBaslik}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form" class="form">
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>İlan Tip Adı</mat-label>
+            <input matInput formControlName="TipAd" name="TipAd" type="text" required>
+        </mat-form-field>
+    </form>
+    <br>
+    <mat-card-actions>
+        <button class="mr-3" mat-raised-button color="primary" [disabled]="form.invalid" (click)="dialogRef.close(form.value)">Kaydet</button>
+        <button mat-raised-button color="warn" (click)="dialogRef.close()">Kapat</button>
+    </mat-card-actions>
+</div>

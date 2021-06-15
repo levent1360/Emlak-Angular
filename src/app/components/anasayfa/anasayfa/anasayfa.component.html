@@ -1,0 +1,74 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-info w-100">
+    <div class="container-fluid">
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+        <div class="collapse navbar-collapse">
+            <div class="col-md-9">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link text-white">Anasayfa</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-3 float-right">
+                <span *ngIf="uyeGiris">
+                    <button class="mr-3" [routerLink]="['/yonetici']" mat-flat-button color="warn"><mat-icon>group_add</mat-icon> Üye Paneli</button>
+                    <button mat-flat-button color="warn"><mat-icon>login</mat-icon> Çıkış Yap</button>
+                </span>
+                <span *ngIf="!uyeGiris">
+                    <button class="mr-3" (click)="UyeOl()" mat-flat-button color="primary"><mat-icon>group_add</mat-icon> Üye Ol</button>
+                    <button (click)="GirisYap()" mat-flat-button color="warn"><mat-icon>login</mat-icon> Giriş Yap</button>
+                </span>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let ilan of ilanlar">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>{{ilan.IlanAd}}</mat-card-title>
+                    <mat-card-subtitle>{{ilan.kullaniciBilgi.KullaniciAdi}} {{ilan.kullaniciBilgi.KullaniciSoyadi}}</mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image [src]="ilan.IlanFotoUrl" [alt]="ilan.IlanAd">
+                <mat-card-content>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <mat-list role="list">
+                                <mat-list-item role="listitem">
+                                    <mat-icon>paid</mat-icon> {{ilan.IlanFiyat}} TL</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>room</mat-icon> {{ilan.IlanILAd}}</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>maps_home_work</mat-icon> {{ilan.IlanTipAd}}</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>done</mat-icon> {{ilan.IlanYakitTipAd}}</mat-list-item>
+                            </mat-list>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-list role="list">
+                                <mat-list-item role="listitem">
+                                    <mat-icon>done</mat-icon> {{ilan.IlanMKare}} m2</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>room</mat-icon> {{ilan.IlanILceAd}}</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>chair</mat-icon> {{ilan.IlanOdaSayAd}}</mat-list-item>
+                                <mat-list-item role="listitem">
+                                    <mat-icon>push_pin</mat-icon> {{ilan.IlanEsyaAd}}</mat-list-item>
+                            </mat-list>
+                        </div>
+                    </div>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button>İNCELE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+
+
+</div>

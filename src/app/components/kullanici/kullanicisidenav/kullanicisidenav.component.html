@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar><img class="img-fluid" src="https://images.vexels.com/media/users/3/127772/isolated/preview/ce0eaed4069f2b190e580759fcc98662-front-home-real-estate-icon-by-vexels.png" alt=""></mat-toolbar>
+        <mat-toolbar>
+            <mat-toolbar-row class="b-bottom">
+                {{this.girisKullanici?.KullaniciAdi}} {{this.girisKullanici?.KullaniciSoyadi}}
+            </mat-toolbar-row>
+            <mat-toolbar-row class="b-bottom">
+                {{this.girisKullanici?.KullaniciTipAd}} <button (click)="CikisYap()" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Çıkış Yap">
+                    <mat-icon>power_settings_new</mat-icon>
+                </button>
+            </mat-toolbar-row>
+        </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item [routerLink]="['kullanicilar']">
+                <span class="full-width">Bilgilerim</span>
+                <mat-icon mat-list-icon>people</mat-icon>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['ilanlarim']">
+                <span class="full-width">İlanlarım</span>
+                <mat-icon mat-list-icon>wysiwyg</mat-icon>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+      <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+    </button>
+            <span>Kullanıcı Paneli</span>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

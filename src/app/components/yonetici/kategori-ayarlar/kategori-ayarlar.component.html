@@ -1,0 +1,170 @@
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-4 mt-2 mb-3">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <button (click)="ilanTipEkle()" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Yeni Ekle">
+                        <mat-icon>add_circle_outline</mat-icon></button> İlan Tipleri
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover text-center">
+                        <thead class="text-center">
+                            <tr>
+                                <th>İlan Tipi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let ilantip of ilanTipler">
+                                <td>
+                                    <h3>{{ilantip.TipAd}}</h3>
+                                </td>
+                                <td><button (click)="ilanTipDuzenle(ilantip)" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Düzenle">
+                                    <mat-icon>edit</mat-icon></button>
+                                    <button (click)="ilanTipSil(ilantip.TipId)" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Sil">
+                                    <mat-icon>delete</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+        <div class="col-md-4 mt-2 mb-3">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <button (click)="esyaDurumuEkle()" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Yeni Ekle">
+                        <mat-icon>add_circle_outline</mat-icon></button> Eşya Durumu
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Eşya durumu</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let esyadurum of esyaDurumlar">
+                                <td>
+                                    <h3>{{esyadurum.EsyaAd}}</h3>
+                                </td>
+                                <td><button (click)="esyaDurumDuzenle(esyadurum)" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Düzenle">
+                                    <mat-icon>edit</mat-icon></button>
+                                    <button (click)="esyaDurumuSil(esyadurum.EsyaId)" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Sil">
+                                    <mat-icon>delete</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+        <div class="col-md-4 mt-2 mb-3">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <button (click)="odaSayisiEkle()" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Yeni Ekle">
+                        <mat-icon>add_circle_outline</mat-icon></button> Oda Sayısı
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Oda Sayısı</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let odasayi of odaSayilar">
+                                <td>
+                                    <h3>{{odasayi.OdaSayisiAd}}</h3>
+                                </td>
+                                <td><button (click)="odaSayisiDuzenle(odasayi)" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Düzenle">
+                                    <mat-icon>edit</mat-icon></button>
+                                    <button (click)="odaSayisiSil(odasayi.OdaSayisiId)" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Sil">
+                                    <mat-icon>delete</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+        <div class="col-md-4 mt-2 mb-3">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <button (click)="yakittipiEkle()" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Yeni Ekle">
+                        <mat-icon>add_circle_outline</mat-icon></button> Yakıt Tipi
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Yakıt Tipi</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let yakittip of yakittipler">
+                                <td>
+                                    <h3>{{yakittip.YakitTipAd}}</h3>
+                                </td>
+                                <td><button (click)="yakittipiDuzenle(yakittip)" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Düzenle">
+                                    <mat-icon>edit</mat-icon></button>
+                                    <button (click)="yakittipiSil(yakittip.YakitTipId)" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Sil">
+                                    <mat-icon>delete</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+        <div class="col-md-4 mt-2 mb-3">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <mat-card-title>
+                        <button (click)="kullanicitipiEkle()" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Yeni Ekle">
+                        <mat-icon>add_circle_outline</mat-icon></button> Kullanıcı Tipi
+                    </mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <table class="table table-hover">
+                        <thead class="text-center">
+                            <tr>
+                                <th>Kullanıcı Tip</th>
+                                <th>İşlem</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let kullaniciTip of kullaniciTipler">
+                                <td>
+                                    <h3>{{kullaniciTip.KullaniciTipAd}}</h3>
+                                </td>
+                                <td><button (click)="kullanicitipiDuzenle(kullaniciTip)" mat-icon-button color="primary" matTooltipClass="tooltip-edit" matTooltip="Düzenle">
+                                    <mat-icon>edit</mat-icon></button>
+                                    <button (click)="kullanicitipiSil(kullaniciTip.KullaniciTipId)" mat-icon-button color="warn" matTooltipClass="tooltip-edit" matTooltip="Sil">
+                                    <mat-icon>delete</mat-icon></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,41 @@
+<div class="container mt-3 mb-5">
+    <div class="row">
+        <div class="col-md-12 mb-5">
+            <section>
+                <div class="button-row mt-1">
+                    <div class="flex-container">
+                        <div class="row col-md-7">
+                            <div class="col-md-6">
+                                <button (click)="ekle()" mat-fab color="primary" class="">
+                                <mat-icon>add</mat-icon>
+                            </button> Yeni Kullanıcı Ekle
+                            </div>
+                            <div class="col-md-6">
+                                <input (keyup)="Filtrele($event)" type="text" class="form-control float-right" id="ara" placeholder="Ara...">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <mat-card class="card mr-3 mt-2" *ngFor="let kullanici of kullanicilar">
+            <mat-card-header>
+                <div mat-card-avatar class="header-image"></div>
+                <mat-card-title>{{kullanici.KullaniciAdi}} {{kullanici.KullaniciSoyadi}}</mat-card-title>
+                <mat-card-subtitle class="mr-1" [ngClass]="kullanici.KullaniciTipAd=='Üye'?'uye':'yonetici'">{{kullanici.KullaniciTipAd}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <ul class="list-group">
+                    <li class="list-group-item">{{kullanici.KullaniciMail}}</li>
+                    <li class="list-group-item">{{kullanici.KullaniciTel}}</li>
+                    <li class="list-group-item">{{kullanici.KullaniciilanSay}} adet kayıtlı ilan</li>
+                    <li class="list-group-item">En son 03.06.2021 tarihinde giriş yapmıştır.</li>
+                </ul>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary"><mat-icon>info</mat-icon> Detay</button>
+                <button (click)="KullaniciDuzenle(kullanici)" mat-button color="warn"><mat-icon>edit</mat-icon> Güncelle</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>

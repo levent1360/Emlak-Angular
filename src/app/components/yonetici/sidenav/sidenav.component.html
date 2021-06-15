@@ -1,0 +1,55 @@
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+        <mat-toolbar><img class="img-fluid" src="https://images.vexels.com/media/users/3/127772/isolated/preview/ce0eaed4069f2b190e580759fcc98662-front-home-real-estate-icon-by-vexels.png" alt=""></mat-toolbar>
+        <mat-toolbar>Emlak Projesi</mat-toolbar>
+        <h3 class="ml-4">{{girisKullanici?.KullaniciAdi}} {{girisKullanici?.KullaniciSoyadi}} ({{girisKullanici?.KullaniciTipAd}})</h3>
+        <section>
+            <div class="button-row">
+                <div class="flex-container">
+                    <button mat-icon-button color="primary" matTooltip="Bilgilerim">
+                  <mat-icon>perm_identity</mat-icon>
+                </button>
+                    <button (click)="CikisYap()" mat-icon-button color="warn" matTooltip="Çıkış Yap">
+                    <mat-icon>power_settings_new</mat-icon>
+                  </button>
+                </div>
+            </div>
+        </section>
+        <hr>
+        <mat-nav-list>
+            <mat-list-item [routerLink]="['kullanicilar']" *ngIf="admin">
+                <span class="full-width">Kullanıcılar</span>
+                <mat-icon mat-list-icon>people</mat-icon>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['ilanlar']" *ngIf="admin">
+                <span class="full-width">Tüm İlanlar</span>
+                <mat-icon mat-list-icon>wysiwyg</mat-icon>
+            </mat-list-item>
+            <mat-list-item [routerLink]="['ilanlarim']">
+                <span class="full-width">İlanlarım</span>
+                <mat-icon mat-list-icon>wysiwyg</mat-icon>
+            </mat-list-item>
+            <mat-list-item (click)="showSubmenu = !showSubmenu" class="parent" *ngIf="admin">
+                <span class="full-width" *ngIf="isExpanded || isShowing">Ayarlar</span>
+                <mat-icon mat-list-icon>settings</mat-icon>
+                <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
+            </mat-list-item>
+            <div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
+                <a mat-list-item [routerLink]="['ililceislemleri']">
+                    <mat-icon mat-list-icon>location_city</mat-icon>İl İlçe İşlemleri</a>
+                <a mat-list-item [routerLink]="['kategoriler']">
+                    <mat-icon mat-list-icon>category</mat-icon>Kategori İşlemleri</a>
+
+            </div>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <mat-toolbar color="primary">
+            <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+            <span>Yönetici Paneli</span>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

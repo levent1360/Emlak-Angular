@@ -1,0 +1,49 @@
+.card {
+    max-width: 400px;
+}
+
+.header-image {
+    background-image: url('https://growingsmilestx.com/wp-content/uploads/2019/04/206855.png');
+    background-size: cover;
+}
+
+.mat-form-field+.mat-form-field {
+    margin-left: 8px;
+}
+
+mat-accordion {
+    width: 100%;
+}
+
+mat-card {
+    max-width: 300px!important;
+}
+
+.yonetici {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    position: relative;
+    padding: .15rem .25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: inline-block;
+}
+
+.uye {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    position: relative;
+    padding: .15rem .25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    display: inline-block;
+}
+
+.mat-card-avatar {
+    height: 60px;
+    width: 60px;
+}

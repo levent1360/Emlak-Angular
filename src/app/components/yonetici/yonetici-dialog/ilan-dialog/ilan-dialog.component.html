@@ -1,0 +1,71 @@
+<h1 mat-dialog-title>{{baslik}}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="form" class="form">
+
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>İlan Adı</mat-label>
+            <input matInput formControlName="IlanAd" name="IlanAd" type="text" required>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Fotoğraf</mat-label>
+            <input matInput formControlName="IlanFotoUrl" name="IlanFotoUrl" type="text" required placeholder="Fotoğraf urlsini buraya yapıştırınız.">
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>İlan Tipi</mat-label>
+            <mat-select matInput formControlName="IlanTipId" name="IlanTipId" required>
+                <mat-option *ngFor="let ilanTip of ilanTipler" [value]="ilanTip.TipId">{{ilanTip.TipAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>Yakıt Tipi</mat-label>
+            <mat-select matInput formControlName="IlanYakitTipId" name="IlanYakitTipId" required>
+                <mat-option *ngFor="let yakittip of yakittipler" [value]="yakittip.YakitTipId">{{yakittip.YakitTipAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>Fiyat</mat-label>
+            <input matInput formControlName="IlanFiyat" name="IlanFiyat" type="number" required>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>Metre Kare</mat-label>
+            <input matInput formControlName="IlanMKare" name="IlanMKare" type="number" required>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>İl</mat-label>
+            <mat-select matInput formControlName="IlanILId" name="IlanILId" required #ilid (selectionChange)='ilcelistele(ilid.value)'>
+                <mat-option *ngFor="let il of iller" [value]="il.ILId">{{il.ILAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>İlçe</mat-label>
+            <mat-select matInput formControlName="IlanILceId" name="IlanILceId" required>
+                <mat-option *ngFor="let ilce of ilceler" [value]="ilce.IlceId">{{ilce.IlceAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>Eşya Durumu</mat-label>
+            <mat-select matInput formControlName="IlanEsyaId" name="IlanEsyaId" required>
+                <mat-option *ngFor="let esyaDurum of esyaDurumlar" [value]="esyaDurum.EsyaId">{{esyaDurum.EsyaAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="half-width" appearance="outline">
+            <mat-label>Oda Sayısı</mat-label>
+            <mat-select matInput formControlName="IlanOdaSayId" name="IlanOdaSayId" required>
+                <mat-option *ngFor="let odaSayi of odaSayilar" [value]="odaSayi.OdaSayisiId">{{odaSayi.OdaSayisiAd}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="full-width" appearance="outline">
+            <mat-label>İlan Adresi</mat-label>
+            <textarea matInput formControlName="IlanAdres" name="IlanAdres"></textarea>
+        </mat-form-field>
+    </form>
+    <br>
+    <mat-card-actions>
+        <button class="mr-3" mat-raised-button color="primary" [disabled]="form.invalid" (click)="dialogRef.close(form.value)">
+            <mat-icon>save</mat-icon> Kaydet</button>
+        <button mat-raised-button color="warn" (click)="dialogRef.close()">
+            <mat-icon>block</mat-icon> Kapat</button>
+    </mat-card-actions>
+</div>
